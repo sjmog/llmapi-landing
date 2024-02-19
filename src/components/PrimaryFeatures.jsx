@@ -14,28 +14,29 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Add an endpoint',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Pick a model and add your prompt. We'll give you a URL that you can use to make AI calls.",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Use a custom dataset',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      'Securely upload your own datasets for the AI to reference along with your prompt.',
     image: screenshotExpenses,
+    optional: true,
   },
   {
-    title: 'VAT handling',
-    description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-    image: screenshotVatReturns,
-  },
-  {
-    title: 'Reporting',
-    description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+    title: 'Keep it secure',
+    description: 'Add an API key so only you can use your endpoint.',
     image: screenshotReporting,
+    optional: true,
+  },
+  {
+    title: 'Track requests',
+    description: "See who's called your endpoint, and export the data.",
+    image: screenshotVatReturns,
+    optional: true,
   },
 ]
 
@@ -74,11 +75,10 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            30-second setup, no code required.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            Add a public endpoint, optionally with a custom dataset and API key. Then use it straight away.
           </p>
         </div>
         <Tab.Group
@@ -110,6 +110,11 @@ export function PrimaryFeatures() {
                           )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none" />
+                          {feature.optional && (
+                            <span className="opacity-60 text-base mr-2">
+                              (Optional)
+                            </span>
+                          )}
                           {feature.title}
                         </Tab>
                       </h3>
